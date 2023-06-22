@@ -5,22 +5,22 @@ pygame.init()
 
 screen_width = 1000
 screen_height = 800
-bg = pygame.image.load('bg1.png')
+bg = pygame.image.load('assets/bg1.png')
 screen = pygame.display.set_mode((screen_width, screen_height))
 pygame.display.set_caption("MyGame")
-mc1 = pygame.image.load('fullHealth.png')
+mc1 = pygame.image.load('assets/fullHealth.png')
 mc_X = 470
 mc_Y = 680
 mc_changeX = 0
 mc_changeY = 0
 
-enemy1 = pygame.image.load('monster1.png')
+enemy1 = pygame.image.load('assets/monster1.png')
 enemy_X = 470
 enemy_Y = 50
 enemy_changeX = 0
 enemy_changeY = 0
 
-font = pygame.font.Font('freesansbold.ttf', 32)
+font = pygame.font.Font('assets/freesansbold.ttf', 32)
 text_X = 10
 text_Y = 10
 
