@@ -10,16 +10,18 @@ root.title('Tic-Tac-Toe')
 clicked = True
 moves_count = 0
 
+
 def win(b1, b2, b3, player):
+    global winner
     b1.config(bg="green")
     b2.config(bg="green")
     b3.config(bg="green")
     messagebox.showinfo("Tic Tac Toe", f"{player} wins")
     winner = True
+    reset()
 
 
 def checkifwon(player):
-    global winner
     winner = False
 
     # rows
@@ -72,10 +74,8 @@ def button_click(button):
         reset()
 
 
-
 # Reset
 def reset():
-
     global button1, button2, button3, button4, button5, button6, button7, button8, button9
     global clicked, moves_count
     clicked = True
@@ -110,6 +110,7 @@ def reset():
     button7.grid(row=2, column=0)
     button8.grid(row=2, column=1)
     button9.grid(row=2, column=2)
+
 
 # Create menu
 menu = Menu(root)
