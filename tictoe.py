@@ -6,7 +6,6 @@ root.title('Tic-Tac-Toe')
 
 # root.geometry("1200x710")
 
-
 clicked = True
 moves_count = 0
 
@@ -29,10 +28,10 @@ def checkifwon(player):
         win(button1, button2, button3, player)
 
     elif button4["text"] == player and button5["text"] == player and button6["text"] == player:
-        win(button1, button2, button3, player)
+        win(button4, button5, button6, player)
 
     elif button7["text"] == player and button8["text"] == player and button9["text"] == player:
-        win(button1, button2, button3, player)
+        win(button7, button8, button9, player)
 
     # columns
     elif button1["text"] == player and button4["text"] == player and button7["text"] == player:
@@ -69,7 +68,7 @@ def button_click(button):
     else:
         messagebox.showerror("Tic Tac Toe", "use another button you blind buffoon")
 
-    if moves_count == 9 and winner == False:
+    if moves_count == 9:
         messagebox.showinfo("Tic Tac Toe", "It's a tie")
         reset()
 
