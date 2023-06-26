@@ -1,40 +1,61 @@
-import pygame
-import random
+from tkinter import *
+from tkinter import messagebox
 
-pygame.init()
-screen = pygame.display.set_mode((500, 565))
-pygame.display.set_caption("Enemy Battle: TicTacToe")
-mc1 = pygame.image.load('fullHealth.png')
-enemy1 = pygame.image.load('monster1.png')
-font = pygame.font.Font('freesansbold.ttf', 38)
-def player(x, y):
-    screen.blit(mc1, (x, y))
-def enemy(x, y):
-    screen.blit(enemy1, (x, y))
-def showtext1(x, y):
-    score = font.render(": X", True, (0, 0, 0))
-    screen.blit(score, (x, y))
-def showtext2(x, y):
-    score = font.render(": O", True, (0, 0, 0))
-    screen.blit(score, (x, y))
+root = Tk()
+root.title('Tic-Tac-Toe')
+
+# root.geometry("1200x710")
 
 
-run = True
-while run:
-    screen.fill((248, 240, 227))
-    pygame.draw.line(screen, "Black", (166, 15), (166, 485), 2)
-    pygame.draw.line(screen, "Black", (332, 15), (332, 485), 2)
-    pygame.draw.line(screen, "Black", (15, 166), (485, 166), 2)
-    pygame.draw.line(screen, "Black", (15, 332), (485, 332), 2)
-    player(90, 495)
-    showtext1(160, 510)
-    enemy(290, 495)
-    showtext2(360, 510)
+clicked = True
+moves_count = 0
 
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            run = False
 
-    pygame.display.update()
+# button click
+def button_click(button):
+    global clicked, moves_count
 
-pygame.quit()
+    if button["text"] == " " and clicked == True:
+        button["text"] = "X"
+        clicked = False
+        moves_count += 1
+    elif button["text"] == " " and clicked == False:
+        button["text"] = "O"
+        clicked = True
+        moves_count += 1
+    else:
+        messagebox.showerror("Tic Tac Toe", "use another button you blind buffoon")
+
+
+# making buttons
+button1 = Button(root, text=" ", font=("Comic Sans MS", 20), height=3, width=6, bg="white",
+                 command=lambda: button_click(button1))
+button2 = Button(root, text=" ", font=("Comic Sans MS", 20), height=3, width=6, bg="white",
+                 command=lambda: button_click(button2))
+button3 = Button(root, text=" ", font=("Comic Sans MS", 20), height=3, width=6, bg="white",
+                 command=lambda: button_click(button3))
+button4 = Button(root, text=" ", font=("Comic Sans MS", 20), height=3, width=6, bg="white",
+                 command=lambda: button_click(button4))
+button5 = Button(root, text=" ", font=("Comic Sans MS", 20), height=3, width=6, bg="white",
+                 command=lambda: button_click(button5))
+button6 = Button(root, text=" ", font=("Comic Sans MS", 20), height=3, width=6, bg="white",
+                 command=lambda: button_click(button6))
+button7 = Button(root, text=" ", font=("Comic Sans MS", 20), height=3, width=6, bg="white",
+                 command=lambda: button_click(button7))
+button8 = Button(root, text=" ", font=("Comic Sans MS", 20), height=3, width=6, bg="white",
+                 command=lambda: button_click(button8))
+button9 = Button(root, text=" ", font=("Comic Sans MS", 20), height=3, width=6, bg="white",
+                 command=lambda: button_click(button9))
+
+# placing buttons
+button1.grid(row=0, column=0)
+button2.grid(row=0, column=1)
+button3.grid(row=0, column=2)
+button4.grid(row=1, column=0)
+button5.grid(row=1, column=1)
+button6.grid(row=1, column=2)
+button7.grid(row=2, column=0)
+button8.grid(row=2, column=1)
+button9.grid(row=2, column=2)
+
+root.mainloop()
